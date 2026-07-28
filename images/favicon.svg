@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="雲程數位科技">
+  <title>雲程數位科技</title>
+  <!-- warm ground -->
+  <rect width="32" height="32" rx="7" fill="#EFECE5"/>
+  <rect x="0.5" y="0.5" width="31" height="31" rx="6.5" fill="none" stroke="#E4E0D8"/>
+  <!-- abstract 雲: one crest over two settled strokes -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M7 13.5 Q16 6.5 25 13.5" stroke="#7E8C75" stroke-width="2.6"/>
+    <path d="M9 19.5 H23" stroke="#A8B5A2" stroke-width="2.6"/>
+    <path d="M12 24.5 H20" stroke="#A38F7A" stroke-width="2.6"/>
+  </g>
+</svg>

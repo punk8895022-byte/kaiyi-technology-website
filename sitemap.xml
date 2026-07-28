@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  雲程數位科技有限公司 — sitemap
+
+  !!! PLACEHOLDER ORIGIN !!!
+  "https://example.com" is a placeholder. Replace it with the production
+  origin before go-live (must match robots.txt, the canonical link and og:url).
+
+  <lastmod> is intentionally omitted: the real publication date is not known
+  at build time. Add it (W3C date format, e.g. 2026-07-28) when the page is
+  actually published, or leave it out — it is an optional element.
+
+  Only the single top page is listed. The in-page anchors (#about, #services,
+  #works, #process, #area, #contact) are NOT separate URLs and must not be
+  added here.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://example.com/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

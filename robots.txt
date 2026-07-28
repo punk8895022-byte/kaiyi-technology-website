@@ -1,0 +1,13 @@
+# 雲程數位科技有限公司 — robots.txt
+#
+# !!! PLACEHOLDER ORIGIN !!!
+# The real domain is not known yet. Before go-live, replace every
+# occurrence of "https://example.com" below with the production origin
+# (same origin must also be used in sitemap.xml, the canonical link and
+# the og:url / og:image tags in index.html).
+
+User-agent: *
+Allow: /
+
+# Sitemap must be an absolute URL — REPLACE THE HOST BEFORE LAUNCH
+Sitemap: https://example.com/sitemap.xml

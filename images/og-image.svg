@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="雲程數位科技有限公司 — 弱電整合工程・數位服務">
+  <title>雲程數位科技有限公司</title>
+  <desc>弱電整合工程・數位服務 — 台南・高雄・屏東・嘉義</desc>
+
+  <!-- ground -->
+  <rect width="1200" height="630" fill="#F7F5F0"/>
+  <!-- very soft tonal wash on the right, no gradient -->
+  <rect x="820" y="0" width="380" height="630" fill="#EFECE5"/>
+  <rect x="820" y="0" width="1" height="630" fill="#E4E0D8"/>
+
+  <!-- calm mark, echoing the favicon -->
+  <g fill="none" stroke-linecap="round" transform="translate(1010 315)">
+    <circle cx="0" cy="0" r="118" fill="#A8B5A2" fill-opacity="0.14" stroke="none"/>
+    <path d="M-58 -20 Q0 -70 58 -20" stroke="#7E8C75" stroke-width="7"/>
+    <path d="M-45 16 H45" stroke="#A8B5A2" stroke-width="7"/>
+    <path d="M-26 52 H26" stroke="#A38F7A" stroke-width="7"/>
+  </g>
+
+  <!-- bilingual label -->
+  <text x="96" y="150"
+        font-family="'Noto Serif TC','Noto Serif CJK TC','Source Han Serif TC','Songti TC',serif"
+        font-size="22" fill="#7E8C75" letter-spacing="4">暮らしの技術</text>
+  <text x="96" y="180"
+        font-family="Inter,'Helvetica Neue',Arial,sans-serif"
+        font-size="13" font-weight="500" fill="#A5A399" letter-spacing="4.2">TECHNOLOGY FOR EVERYDAY LIFE</text>
+
+  <!-- company name -->
+  <text x="96" y="316"
+        font-family="'Noto Serif TC','Noto Serif CJK TC','Source Han Serif TC','Songti TC',serif"
+        font-size="66" font-weight="500" fill="#3F403B" letter-spacing="4">雲程數位科技有限公司</text>
+
+  <!-- descriptor -->
+  <text x="96" y="374"
+        font-family="'Noto Sans TC','Noto Sans CJK TC','PingFang TC',Arial,sans-serif"
+        font-size="25" fill="#77776F" letter-spacing="3">弱電整合工程・數位服務</text>
+
+  <!-- hairline -->
+  <rect x="96" y="428" width="120" height="1" fill="#D8CDBD"/>
+
+  <!-- service area -->
+  <text x="96" y="478"
+        font-family="'Noto Sans TC','Noto Sans CJK TC','PingFang TC',Arial,sans-serif"
+        font-size="19" fill="#A5A399" letter-spacing="6">台南・高雄・屏東・嘉義</text>
+
+  <!-- english wordmark -->
+  <text x="96" y="546"
+        font-family="Inter,'Helvetica Neue',Arial,sans-serif"
+        font-size="13" font-weight="500" fill="#A5A399" letter-spacing="5">YUNCHENG DIGITAL TECHNOLOGY</text>
+</svg>
