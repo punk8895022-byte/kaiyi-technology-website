@@ -21,10 +21,15 @@
 
     <!--
       NOTE: ./app.js is deliberately NOT loaded on this page.
-      app.js dereferences [data-header], [data-menu-button], [data-drawer]
-      and .contact-form at top level with no null guards, so it would throw
-      unless this page carried a full drawer + contact form it does not need.
-      Nothing on this page requires script.
+
+      The original reason was that app.js threw on any missing element; that
+      has since been fixed (every lookup is now null-guarded), so loading it
+      here would be safe. It is still omitted because this page has none of
+      the things app.js drives: no drawer, no contact form, no [data-year],
+      and no .reveal elements. Loading it would only cost a request.
+
+      .site-header carries `is-scrolled` statically, since the scroll handler
+      that would normally apply it is not running.
     -->
     <header class="site-header is-scrolled">
       <div class="header-inner">
