@@ -3,240 +3,459 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>凱益科技有限公司｜南台灣科技家庭醫生</title>
+    <title>雲程數位科技有限公司｜網站系統開發・雲端轉型・數位行銷・AI 導入</title>
     <meta
       name="description"
-      content="凱益科技有限公司提供監視系統、門禁、網路佈線、智慧居家與弱電維修整合服務，服務南台灣住宅、店面、社區與中小企業。"
+      content="雲程數位科技有限公司提供網站與系統開發、雲端與數位轉型顧問、數位行銷與品牌經營、AI 應用導入等整合服務，協助企業把數位投資變成可長期營運的資產。"
     />
-    <meta property="og:title" content="凱益科技有限公司｜南台灣科技家庭醫生" />
+    <meta name="theme-color" content="#070a12" />
+    <meta property="og:title" content="雲程數位科技有限公司" />
     <meta
       property="og:description"
-      content="監視器、門禁、網路、智慧居家與弱電維修整合，從現場勘查到後續維護，讓設備穩定可用。"
+      content="網站與系統開發、雲端與數位轉型、數位行銷與品牌、AI 應用導入。從需求盤點到上線維運，一個窗口負責到底。"
     />
     <meta property="og:type" content="website" />
-    <link rel="preconnect" href="https://images.unsplash.com" />
+    <meta property="og:locale" content="zh_TW" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main">跳至主要內容</a>
+    <div class="scroll-progress" data-progress aria-hidden="true"></div>
+
     <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="回到首頁">
-        <span class="brand-mark">K</span>
-        <span>
-          <strong>凱益科技有限公司</strong>
-          <small>Technology Family Doctor</small>
+      <a class="brand" href="#top" aria-label="雲程數位科技，回到首頁">
+        <span class="brand-mark" aria-hidden="true">雲</span>
+        <span class="brand-text">
+          <strong>雲程數位科技</strong>
+          <small>Yuncheng Digital Technology</small>
         </span>
       </a>
-      <nav class="desktop-nav" aria-label="主要導覽">
-        <a href="#about">關於凱益</a>
+      <nav class="desktop-nav" aria-label="主要導覽" data-nav>
+        <a href="#about">關於雲程</a>
         <a href="#services">服務項目</a>
-        <a href="#process">服務流程</a>
-        <a href="#coverage">服務地區</a>
-        <a href="#contact">聯絡我們</a>
+        <a href="#stack">技術能力</a>
+        <a href="#process">合作流程</a>
+        <a href="#clients">服務對象</a>
       </nav>
-      <a class="header-cta" href="#contact">預約檢修</a>
-      <button class="menu-button" type="button" aria-label="開啟選單" aria-expanded="false" data-menu-button>
+      <a class="header-cta" href="#contact">免費諮詢</a>
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="開啟選單"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        data-menu-button
+      >
         <span></span>
         <span></span>
       </button>
     </header>
 
-    <div class="mobile-menu" data-mobile-menu>
-      <a href="#about">關於凱益</a>
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+      <a href="#about">關於雲程</a>
       <a href="#services">服務項目</a>
-      <a href="#process">服務流程</a>
-      <a href="#coverage">服務地區</a>
-      <a href="#contact">聯絡我們</a>
+      <a href="#stack">技術能力</a>
+      <a href="#process">合作流程</a>
+      <a href="#clients">服務對象</a>
+      <a class="mobile-cta" href="#contact">免費諮詢</a>
     </div>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-overlay"></div>
-        <div class="hero-content reveal">
-          <p class="eyebrow">南台灣弱電整合・維修保養・系統升級</p>
-          <h1 id="hero-title">凱益科技有限公司</h1>
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-a" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-b" aria-hidden="true"></div>
+
+        <div class="hero-content">
+          <p class="eyebrow">
+            <span class="pulse" aria-hidden="true"></span>
+            網站開發・雲端轉型・數位行銷・AI 導入
+          </p>
+          <h1 id="hero-title">
+            雲程<span class="grad">數位科技</span>
+          </h1>
           <p class="hero-lede">
-            監視器、門禁、網路與智慧居家一次整理清楚。把不穩、難修、沒人管的弱電設備，變成現場真的能用的系統。
+            從網站與系統開發、雲端架構、行銷佈局到 AI 應用導入，我們負責把構想變成<strong>能上線、能維護、能持續產生效益</strong>的數位資產，而不是一次性的專案交付。
           </p>
           <div class="hero-actions">
-            <a class="primary-action" href="#contact">安排現場評估</a>
-            <a class="secondary-action" href="#services">查看服務</a>
+            <a class="primary-action" href="#contact">預約免費需求諮詢</a>
+            <a class="secondary-action" href="#services">
+              查看服務項目
+              <span aria-hidden="true">↗</span>
+            </a>
           </div>
-        </div>
-        <div class="hero-bottom">
-          <span>監視系統</span>
-          <span>網路佈線</span>
-          <span>門禁對講</span>
-          <span>智慧居家</span>
-          <span>維修保養</span>
+
+          <ul class="hero-pillars">
+            <li>
+              <strong>一個窗口</strong>
+              <span>從規劃、開發到維運不轉手</span>
+            </li>
+            <li>
+              <strong>先盤點再導入</strong>
+              <span>不推用不到的規格與方案</span>
+            </li>
+            <li>
+              <strong>可交接的成果</strong>
+              <span>文件、帳號、原始碼完整移交</span>
+            </li>
+          </ul>
         </div>
       </section>
 
-      <section id="about" class="section intro-section">
-        <div class="section-kicker">ABOUT KAIYI</div>
-        <div class="intro-grid">
-          <h2>不是賣設備而已，是替客戶把科技問題收斂到有人負責。</h2>
-          <div class="intro-copy">
-            <p>
-              凱益科技定位為「科技家庭醫生」，服務住宅、店面、辦公室、社區與中小企業。現場常見的問題不是缺設備，而是規劃破碎、線路不清、維修紀錄斷掉，最後變成每次故障都重新找人猜。
-            </p>
-            <p>
-              我們優先處理穩定度、維護性與後續追蹤；必要時才更換設備，不用硬推全套升級。
-            </p>
+      <section class="marquee-band" aria-label="服務範圍摘要">
+        <div class="marquee" data-marquee>
+          <div class="marquee-track">
+            <span>企業官網</span><i aria-hidden="true">✦</i>
+            <span>電商平台</span><i aria-hidden="true">✦</i>
+            <span>客製化系統</span><i aria-hidden="true">✦</i>
+            <span>雲端遷移</span><i aria-hidden="true">✦</i>
+            <span>系統整合</span><i aria-hidden="true">✦</i>
+            <span>SEO 優化</span><i aria-hidden="true">✦</i>
+            <span>廣告投放</span><i aria-hidden="true">✦</i>
+            <span>品牌視覺</span><i aria-hidden="true">✦</i>
+            <span>AI 客服</span><i aria-hidden="true">✦</i>
+            <span>流程自動化</span><i aria-hidden="true">✦</i>
+            <span>資料分析</span><i aria-hidden="true">✦</i>
           </div>
         </div>
       </section>
 
-      <section class="image-band" aria-label="弱電機房整理示意">
-        <img
-          src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1800&q=82"
-          alt="整理良好的網路與弱電設備機櫃"
-        />
-        <div class="image-band-caption">
-          <span>現場勘查</span>
-          <strong>先確認線路、設備與風險，再談施工方案。</strong>
+      <section id="about" class="section about-section">
+        <div class="section-kicker">ABOUT / 關於雲程</div>
+        <div class="about-grid">
+          <h2>數位工具不缺，缺的是<span class="grad">有人把它整合成能用的系統</span>。</h2>
+          <div class="about-copy reveal">
+            <p>
+              多數企業的數位困境不是「沒導入」，而是導入得太零散：官網一家做、系統一家做、廣告再一家做，資料彼此不通，出問題時沒人能說清楚全貌。
+            </p>
+            <p>
+              雲程數位科技把網站、系統、雲端、行銷與 AI 應用視為同一件事來規劃。我們先盤點你現有的流程與工具，找出真正的瓶頸，再決定要開發什麼、串接什麼、什麼其實不用做。
+            </p>
+            <p>
+              專案結束不等於服務結束——原始碼、帳號、部署文件與後續優化建議完整移交，讓你隨時能自己接手或換人接手。
+            </p>
+          </div>
         </div>
       </section>
 
       <section id="services" class="section services-section">
         <div class="section-heading">
           <div>
-            <div class="section-kicker">OUR SERVICES</div>
-            <h2>服務項目</h2>
+            <div class="section-kicker">SERVICES / 服務項目</div>
+            <h2>四條業務線，<br />可以單獨進行，也可以整合成一套。</h2>
           </div>
-          <p>以常見故障與長期維運成本為核心，規劃能落地、能維修、能交接的弱電系統。</p>
+          <p>
+            每個專案都從需求訪談與現況盤點開始。範圍、時程與報價需經雙方確認後才成立，我們不提供未經評估的絕對承諾。
+          </p>
         </div>
-        <div class="service-list">
-          <article class="service-item reveal">
-            <span>01</span>
-            <h3>監視系統</h3>
-            <p>鏡頭配置、錄影主機、遠端觀看、死角盤點、老舊系統汰換與故障排查。</p>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <div class="service-top">
+              <span class="service-no">01</span>
+              <h3>網站與系統開發</h3>
+            </div>
+            <p>
+              企業官網、品牌形象站、電商平台、後台管理系統與 API 串接。從 UI/UX 設計、前後端開發到部署上線一條龍，交付可維護的原始碼而非黑箱。
+            </p>
+            <ul class="service-tags">
+              <li>企業官網</li>
+              <li>電商平台</li>
+              <li>客製化系統</li>
+              <li>RWD 響應式</li>
+              <li>API 串接</li>
+              <li>系統改版重構</li>
+            </ul>
           </article>
-          <article class="service-item reveal">
-            <span>02</span>
-            <h3>網路佈線</h3>
-            <p>有線網路、Wi-Fi 覆蓋、弱電箱整理、交換器規劃、辦公室與店面網路穩定化。</p>
+
+          <article class="service-card reveal">
+            <div class="service-top">
+              <span class="service-no">02</span>
+              <h3>雲端與數位轉型顧問</h3>
+            </div>
+            <p>
+              雲端架構規劃、系統遷移、內部流程數位化與工具整合。先確認現況與成本結構，再談導入範圍，避免買了一堆授權卻沒人用起來。
+            </p>
+            <ul class="service-tags">
+              <li>雲端遷移</li>
+              <li>架構規劃</li>
+              <li>系統整合</li>
+              <li>流程數位化</li>
+              <li>備援與資安</li>
+              <li>IT 顧問</li>
+            </ul>
           </article>
-          <article class="service-item reveal">
-            <span>03</span>
-            <h3>門禁與對講</h3>
-            <p>門禁控制、電子鎖、影視對講、社區與商用場域進出管理。</p>
+
+          <article class="service-card reveal">
+            <div class="service-top">
+              <span class="service-no">03</span>
+              <h3>數位行銷與品牌</h3>
+            </div>
+            <p>
+              SEO、內容與社群經營、廣告投放與品牌視覺設計。以轉換數據決定資源配置，報表看得懂、成效追得到，不只做曝光數字。
+            </p>
+            <ul class="service-tags">
+              <li>SEO 優化</li>
+              <li>內容經營</li>
+              <li>社群經營</li>
+              <li>廣告投放</li>
+              <li>品牌視覺</li>
+              <li>成效追蹤</li>
+            </ul>
           </article>
-          <article class="service-item reveal">
-            <span>04</span>
-            <h3>智慧居家</h3>
-            <p>燈控、感測、遠端控制與生活場景整合，保留手動操作與故障備援。</p>
+
+          <article class="service-card reveal">
+            <div class="service-top">
+              <span class="service-no">04</span>
+              <h3>AI 應用導入</h3>
+            </div>
+            <p>
+              AI 客服、文件與表單自動化、內部知識庫、資料分析與模型串接。從實際重複性痛點挑場景切入，先做出可衡量的小成果再擴大。
+            </p>
+            <ul class="service-tags">
+              <li>AI 客服</li>
+              <li>流程自動化</li>
+              <li>文件處理</li>
+              <li>企業知識庫</li>
+              <li>資料分析</li>
+              <li>模型 API 串接</li>
+            </ul>
           </article>
-          <article class="service-item reveal">
-            <span>05</span>
-            <h3>維修保養</h3>
-            <p>設備不穩、畫面中斷、網路斷線、電源異常、現場檢測與保養紀錄建立。</p>
-          </article>
-          <article class="service-item reveal">
-            <span>06</span>
-            <h3>弱電工程顧問</h3>
-            <p>新建案、裝修案、辦公室搬遷前期規劃，降低日後重拉線與停機成本。</p>
-          </article>
+        </div>
+      </section>
+
+      <section id="stack" class="section stack-section">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">CAPABILITIES / 技術能力</div>
+            <h2>選技術是為了好維護，<br />不是為了看起來厲害。</h2>
+          </div>
+          <p>
+            我們依專案規模、團隊接手能力與長期維運成本選型，並在交付時說明為什麼這樣選，讓你日後有換手的空間。
+          </p>
+        </div>
+
+        <div class="stack-groups">
+          <div class="stack-group reveal">
+            <h3>前端開發</h3>
+            <ul>
+              <li>React</li>
+              <li>Next.js</li>
+              <li>TypeScript</li>
+              <li>Vue</li>
+              <li>Tailwind CSS</li>
+            </ul>
+          </div>
+          <div class="stack-group reveal">
+            <h3>後端與資料</h3>
+            <ul>
+              <li>Node.js</li>
+              <li>Python</li>
+              <li>PHP / Laravel</li>
+              <li>PostgreSQL</li>
+              <li>MySQL</li>
+            </ul>
+          </div>
+          <div class="stack-group reveal">
+            <h3>雲端與維運</h3>
+            <ul>
+              <li>AWS</li>
+              <li>Google Cloud</li>
+              <li>Azure</li>
+              <li>Docker</li>
+              <li>CI / CD</li>
+            </ul>
+          </div>
+          <div class="stack-group reveal">
+            <h3>行銷與 AI</h3>
+            <ul>
+              <li>GA4</li>
+              <li>Google Ads</li>
+              <li>Meta Ads</li>
+              <li>LINE 官方帳號</li>
+              <li>LLM API 串接</li>
+            </ul>
+          </div>
         </div>
       </section>
 
       <section id="process" class="section process-section">
         <div class="process-sticky">
-          <div class="section-kicker">SERVICE FLOW</div>
-          <h2>流程要簡單，責任要清楚。</h2>
-          <p>現場工程最怕資訊斷掉。凱益把每次服務拆成可追蹤步驟，避免口頭交代後沒人記得。</p>
+          <div class="section-kicker">PROCESS / 合作流程</div>
+          <h2>每個階段都有產出，<br />不會做到一半看不到東西。</h2>
+          <p>
+            專案最怕「進度不明」。我們把合作拆成五個可驗收的階段，每一階段結束都有具體交付物與確認點。
+          </p>
         </div>
         <ol class="timeline">
           <li class="reveal">
-            <strong>需求確認</strong>
-            <span>釐清場域、故障現象、預算區間與時程限制。</span>
+            <strong>需求訪談</strong>
+            <span>釐清目標、使用者、預算區間與時程限制，確認這個專案該不該做、要做多大。</span>
           </li>
           <li class="reveal">
-            <strong>現場勘查</strong>
-            <span>確認線路、電源、網路環境、設備位置與施工風險。</span>
+            <strong>現況盤點與提案</strong>
+            <span>盤點既有網站、系統、資料與行銷資源，提出分階段做法與範圍建議書。</span>
           </li>
           <li class="reveal">
-            <strong>方案建議</strong>
-            <span>提供分階段做法與需人工確認的報價欄位，不做絕對承諾。</span>
+            <strong>設計與開發</strong>
+            <span>介面設計稿確認後進入開發，過程提供可預覽環境，隨時看得到進度。</span>
           </li>
           <li class="reveal">
-            <strong>施工交付</strong>
-            <span>完成安裝、測試、基本教學與設備資訊留存。</span>
+            <strong>測試與上線</strong>
+            <span>功能測試、跨裝置檢查、效能與基本資安確認，完成部署與後台教學。</span>
           </li>
           <li class="reveal">
-            <strong>維護追蹤</strong>
-            <span>保固、保養、故障紀錄與後續擴充建議。</span>
+            <strong>維運與優化</strong>
+            <span>依合作方案提供監控、更新、數據回報與後續優化建議，並完整移交文件。</span>
           </li>
         </ol>
       </section>
 
-      <section id="coverage" class="coverage-section">
-        <div class="coverage-media">
-          <img
-            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=82"
-            alt="工程師檢視筆電中的系統狀態"
-          />
-        </div>
-        <div class="coverage-copy">
-          <div class="section-kicker">AREA</div>
-          <h2>服務地區</h2>
-          <p>以台南、高雄、屏東、嘉義等南台灣場域為主，偏遠地區與急件需依人力與車程確認。</p>
-          <div class="area-tags" aria-label="服務地區列表">
-            <span>台南</span>
-            <span>高雄</span>
-            <span>屏東</span>
-            <span>嘉義</span>
-            <span>其他地區需確認</span>
+      <section id="clients" class="section clients-section">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">WHO WE SERVE / 服務對象</div>
+            <h2>適合這些情境的團隊。</h2>
           </div>
+          <p>不限產業，但下列情境我們處理得最順手。若你的狀況不在其中，也歡迎先聊聊再判斷。</p>
+        </div>
+        <div class="client-grid">
+          <article class="client-card reveal">
+            <h3>官網老舊、手機版難用</h3>
+            <p>版型過時、載入慢、手機操作卡，想重新改版並兼顧 SEO 與後續自行維護。</p>
+          </article>
+          <article class="client-card reveal">
+            <h3>流程還在 Excel 和 LINE 上</h3>
+            <p>訂單、報價、庫存靠人工轉貼，想把重複作業變成可查詢、可追蹤的系統。</p>
+          </article>
+          <article class="client-card reveal">
+            <h3>廣告有花，成效說不清</h3>
+            <p>投放持續進行但缺乏追蹤設定與歸因，不確定預算該往哪裡加。</p>
+          </article>
+          <article class="client-card reveal">
+            <h3>想導入 AI 但不知從何開始</h3>
+            <p>聽了很多方案卻不確定哪個對自己有用，需要有人陪著盤點場景與可行性。</p>
+          </article>
+          <article class="client-card reveal">
+            <h3>系統散落多家廠商</h3>
+            <p>網站、系統、行銷各自為政，資料不互通，出問題找不到單一負責窗口。</p>
+          </article>
+          <article class="client-card reveal">
+            <h3>新創需要快速上線驗證</h3>
+            <p>想用最小可行版本先測市場，再依實際回饋決定要不要往下投資。</p>
+          </article>
         </div>
       </section>
 
       <section id="contact" class="contact-section">
-        <div>
-          <div class="section-kicker">CONTACT</div>
-          <h2>先把問題描述清楚，再決定要不要到場。</h2>
+        <div class="contact-copy">
+          <div class="section-kicker">CONTACT / 聯絡我們</div>
+          <h2>先把需求說清楚，<br />再決定要不要合作。</h2>
           <p>
-            請提供場域類型、目前故障現象、設備照片與位置。若需估價，實際金額與承諾內容需由凱益人工確認。
+            請簡述目前的狀況、想解決的問題與期望時程。我們會先判斷這個需求適不適合由我們承接，不適合也會直接說明。
           </p>
+          <dl class="contact-meta">
+            <div>
+              <dt>電子郵件</dt>
+              <dd>[需人工填寫] service@example.com</dd>
+            </div>
+            <div>
+              <dt>聯絡電話</dt>
+              <dd>[需人工填寫] 例：02-1234-5678</dd>
+            </div>
+            <div>
+              <dt>服務時間</dt>
+              <dd>[需人工填寫] 例：週一至週五 09:00–18:00</dd>
+            </div>
+          </dl>
         </div>
-        <form class="contact-form" aria-label="聯絡表單">
-          <label>
-            姓名 / 公司
-            <input type="text" name="name" autocomplete="name" placeholder="例：王先生 / XX 管委會" />
-          </label>
+
+        <form class="contact-form" aria-label="需求諮詢表單" novalidate>
+          <div class="field-row">
+            <label>
+              姓名
+              <input type="text" name="name" autocomplete="name" placeholder="例：王小姐" />
+            </label>
+            <label>
+              公司 / 品牌
+              <input type="text" name="company" autocomplete="organization" placeholder="例：雲程股份有限公司" />
+            </label>
+          </div>
           <label>
             聯絡方式
-            <input type="text" name="contact" autocomplete="tel" placeholder="[需人工填寫] 電話或 LINE ID" />
+            <input type="text" name="contact" autocomplete="email" placeholder="Email 或電話，方便我們回覆" />
           </label>
           <label>
-            需要協助的項目
+            需求類型
             <select name="service">
-              <option>監視系統</option>
-              <option>網路佈線 / Wi-Fi</option>
-              <option>門禁 / 對講 / 電子鎖</option>
-              <option>智慧居家</option>
-              <option>維修保養</option>
-              <option>其他弱電問題</option>
+              <option>網站與系統開發</option>
+              <option>雲端與數位轉型顧問</option>
+              <option>數位行銷與品牌</option>
+              <option>AI 應用導入</option>
+              <option>尚未確定，想先討論</option>
             </select>
           </label>
           <label>
-            問題描述
-            <textarea name="message" rows="4" placeholder="請描述場域、故障狀況、希望處理時間。"></textarea>
+            預算區間
+            <select name="budget">
+              <option>尚未確定</option>
+              <option>10 萬以下</option>
+              <option>10–30 萬</option>
+              <option>30–100 萬</option>
+              <option>100 萬以上</option>
+            </select>
+          </label>
+          <label>
+            需求描述
+            <textarea
+              name="message"
+              rows="4"
+              placeholder="請描述目前狀況、想解決的問題，以及期望的上線時間。"
+            ></textarea>
           </label>
           <button type="submit">送出諮詢</button>
-          <p class="form-note">此表單為前端示範，正式上線前需串接表單服務、LINE 或 CRM。</p>
+          <p class="form-note">
+            此表單為前端示範，正式上線前需串接表單服務、Email 通知、LINE 官方帳號或 CRM 才會實際送出。
+          </p>
         </form>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div>
-        <strong>凱益科技有限公司</strong>
-        <span>科技家庭醫生｜弱電系統整合與維修服務</span>
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true">雲</span>
+        <div>
+          <strong>雲程數位科技有限公司</strong>
+          <span>網站系統開發｜雲端轉型｜數位行銷｜AI 應用導入</span>
+        </div>
       </div>
-      <div class="footer-links">
-        <a href="#services">服務項目</a>
-        <a href="#process">流程</a>
-        <a href="#contact">聯絡</a>
+
+      <div class="footer-cols">
+        <div>
+          <h4>服務</h4>
+          <a href="#services">網站與系統開發</a>
+          <a href="#services">雲端與數位轉型</a>
+          <a href="#services">數位行銷與品牌</a>
+          <a href="#services">AI 應用導入</a>
+        </div>
+        <div>
+          <h4>公司</h4>
+          <a href="#about">關於雲程</a>
+          <a href="#process">合作流程</a>
+          <a href="#clients">服務對象</a>
+          <a href="#contact">聯絡我們</a>
+        </div>
+        <div>
+          <h4>資訊</h4>
+          <span class="footer-note">統一編號：[需人工填寫]</span>
+          <span class="footer-note">地址：[需人工填寫]</span>
+          <span class="footer-note">電話：[需人工填寫]</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <small>© <span data-year>2026</span> 雲程數位科技有限公司. All rights reserved.</small>
+        <small>本網站內容為示範版本，正式上線前請確認公司資訊與服務條款。</small>
       </div>
     </footer>
 
