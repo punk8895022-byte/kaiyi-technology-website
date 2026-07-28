@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>找不到頁面｜雲程數位科技有限公司</title>
+    <meta name="description" content="您要找的頁面不存在或已移動。請回到雲程數位科技有限公司首頁，或直接與我們聯絡。" />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#F7F5F0" />
+    <link rel="icon" href="./images/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳至主要內容</a>
+
+    <!--
+      NOTE: ./app.js is deliberately NOT loaded on this page.
+      app.js dereferences [data-header], [data-menu-button], [data-drawer]
+      and .contact-form at top level with no null guards, so it would throw
+      unless this page carried a full drawer + contact form it does not need.
+      Nothing on this page requires script.
+    -->
+    <header class="site-header is-scrolled">
+      <div class="header-inner">
+        <a class="brand" href="./index.html" aria-label="雲程數位科技，回到首頁">
+          <span class="brand-name">雲程數位科技</span>
+          <span class="brand-en">Yuncheng Digital</span>
+        </a>
+
+        <span aria-hidden="true"></span>
+
+        <a class="header-cta" href="./index.html#contact">預約勘查</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="wrap hero-copy">
+          <p class="label">
+            <span class="label-ja">ページが見つかりません</span>
+            <span class="label-en">404 Not Found</span>
+          </p>
+
+          <h1>這個頁面，<br />目前找不到。</h1>
+
+          <p class="lede">
+            網址可能輸入有誤，或這個頁面已經調整過位置。內容還在，只是不在這裡。您可以回到首頁重新瀏覽服務項目，或直接把問題描述給我們。
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="./index.html">回到首頁</a>
+            <a class="btn btn-ghost" href="./index.html#contact">聯絡我們</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-bottom">
+        <small>雲程數位科技有限公司｜弱電整合工程・數位服務</small>
+        <small>台南・高雄・屏東・嘉義</small>
+      </div>
+    </footer>
+  </body>
+</html>
