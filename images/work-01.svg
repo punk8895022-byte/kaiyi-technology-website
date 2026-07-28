@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" width="900" height="675" role="presentation">
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E7E9E2"/>
+      <stop offset="1" stop-color="#A8B5A2"/>
+    </linearGradient>
+    <radialGradient id="light" cx="0.28" cy="0.2" r="0.75">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="900" height="675" fill="url(#wash)"/>
+  <rect width="900" height="675" fill="url(#light)"/>
+  <g fill="#7E8C75" opacity="0.16">
+    <circle cx="666" cy="203" r="176"/>
+  </g>
+  <g stroke="#7E8C75" stroke-width="1" opacity="0.28">
+    <line x1="0" y1="459" x2="900" y2="459"/>
+    <line x1="144" y1="0" x2="144" y2="675"/>
+  </g>
+  <rect width="900" height="675" filter="url(#grain)" opacity="0.05"/>
+</svg>

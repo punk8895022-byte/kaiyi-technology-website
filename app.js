@@ -1,62 +1,53 @@
 const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-button]");
-const mobileMenu = document.querySelector("[data-mobile-menu]");
-const progressBar = document.querySelector("[data-progress]");
-const marquee = document.querySelector("[data-marquee]");
+const drawer = document.querySelector("[data-drawer]");
 const navLinks = document.querySelectorAll("[data-nav] a");
 const revealTargets = document.querySelectorAll(".reveal");
 const contactForm = document.querySelector(".contact-form");
 const yearSlot = document.querySelector("[data-year]");
 
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+/* ---------- header ---------- */
 
-/* ---------- header state + scroll progress ---------- */
-
-function syncScrollState() {
-  header.classList.toggle("is-scrolled", window.scrollY > 24);
-
-  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-  const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
-  progressBar.style.transform = `scaleX(${Math.min(ratio, 1)})`;
+function syncHeader() {
+  header.classList.toggle("is-scrolled", window.scrollY > 16);
 }
 
-syncScrollState();
-window.addEventListener("scroll", syncScrollState, { passive: true });
-window.addEventListener("resize", syncScrollState);
+syncHeader();
+window.addEventListener("scroll", syncHeader, { passive: true });
 
-/* ---------- mobile menu ---------- */
+/* ---------- drawer ---------- */
 
-function setMenu(isOpen) {
-  mobileMenu.classList.toggle("is-open", isOpen);
+function setDrawer(isOpen) {
+  drawer.classList.toggle("is-open", isOpen);
   header.classList.toggle("is-open", isOpen);
   menuButton.setAttribute("aria-expanded", String(isOpen));
   menuButton.setAttribute("aria-label", isOpen ? "關閉選單" : "開啟選單");
 }
 
 menuButton.addEventListener("click", () => {
-  setMenu(!mobileMenu.classList.contains("is-open"));
+  setDrawer(!drawer.classList.contains("is-open"));
 });
 
-mobileMenu.addEventListener("click", (event) => {
-  if (event.target.matches("a")) {
-    setMenu(false);
+drawer.addEventListener("click", (event) => {
+  if (event.target.closest("a")) {
+    setDrawer(false);
   }
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && mobileMenu.classList.contains("is-open")) {
-    setMenu(false);
+  if (event.key === "Escape" && drawer.classList.contains("is-open")) {
+    setDrawer(false);
     menuButton.focus();
   }
 });
 
 window.addEventListener("resize", () => {
-  if (window.innerWidth > 980) {
-    setMenu(false);
+  if (window.innerWidth > 940) {
+    setDrawer(false);
   }
 });
 
-/* ---------- active nav highlighting ---------- */
+/* ---------- active nav ---------- */
 
 const sectionMap = new Map();
 
@@ -71,12 +62,10 @@ const navObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       const link = sectionMap.get(entry.target);
-      if (!link) return;
+      if (!link || !entry.isIntersecting) return;
 
-      if (entry.isIntersecting) {
-        navLinks.forEach((item) => item.classList.remove("is-active"));
-        link.classList.add("is-active");
-      }
+      navLinks.forEach((item) => item.classList.remove("is-active"));
+      link.classList.add("is-active");
     });
   },
   { rootMargin: "-45% 0px -50% 0px" }
@@ -84,7 +73,7 @@ const navObserver = new IntersectionObserver(
 
 sectionMap.forEach((_link, section) => navObserver.observe(section));
 
-/* ---------- reveal on scroll ---------- */
+/* ---------- restrained fade-in ---------- */
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
@@ -95,24 +84,13 @@ const revealObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.15 }
+  { threshold: 0.12 }
 );
 
 revealTargets.forEach((target, index) => {
-  target.style.transitionDelay = `${Math.min(index * 60, 240)}ms`;
+  target.style.transitionDelay = `${Math.min(index * 40, 160)}ms`;
   revealObserver.observe(target);
 });
-
-/* ---------- marquee: duplicate the track so the loop is seamless ---------- */
-
-if (marquee && !prefersReducedMotion) {
-  const track = marquee.querySelector(".marquee-track");
-  if (track) {
-    const clone = track.cloneNode(true);
-    clone.setAttribute("aria-hidden", "true");
-    marquee.appendChild(clone);
-  }
-}
 
 /* ---------- footer year ---------- */
 
