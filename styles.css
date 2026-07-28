@@ -63,6 +63,26 @@ a {
   text-decoration: none;
 }
 
+/* The Japanese caption fragments sit inside a zh-Hant document, so without
+   this they render with Traditional-Chinese glyph variants (対/応 etc.) —
+   visible to a Japanese reader even though the kana never turn to tofu. */
+:lang(ja) {
+  font-family: "Noto Serif JP", "Noto Serif CJK JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+
+/* Focus ring for everything that can take focus. outline-offset places it on
+   the surrounding surface, which keeps it legible over the olive button fill. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Programmatic target of the skip link — must not show a ring of its own. */
+#main:focus {
+  outline: none;
+}
+
 h1,
 h2,
 h3,
@@ -94,10 +114,16 @@ h2 {
   line-height: 1.45;
 }
 
+/* .wrap is the ONLY source of horizontal gutter on the page. If either the
+   logical property or the clamp() were not understood the whole declaration
+   would be dropped and text would run to the glass edge, so both carry a
+   physical fallback first. */
 .wrap {
   width: 100%;
   max-width: var(--wrap);
+  margin: 0 auto;
   margin-inline: auto;
+  padding: 0 20px;
   padding-inline: clamp(20px, 5vw, 48px);
 }
 
@@ -150,6 +176,9 @@ h2 {
   height: var(--header-height);
   background: rgba(247, 245, 240, 0.82);
   border-bottom: 1px solid transparent;
+  /* unprefixed backdrop-filter only shipped in Safari 18; the prefix covers
+     Safari 9-17.x, which is a large share of corporate Macs and iPads */
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   transition: border-color 300ms var(--ease), background 300ms var(--ease);
 }
@@ -164,12 +193,22 @@ h2 {
   width: 100%;
   max-width: var(--wrap);
   height: 100%;
+  margin: 0 auto;
   margin-inline: auto;
+  padding: 0 20px;
   padding-inline: clamp(20px, 5vw, 48px);
   display: grid;
-  grid-template-columns: auto 1fr auto auto;
+  /* three real columns: a fourth trailing `auto` used to collapse to 0px but
+     still charge its 40px gap, insetting the CTA from the content edge */
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 40px;
+}
+
+.header-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .brand {
@@ -312,10 +351,9 @@ h2 {
   font-size: 17px;
 }
 
-.drawer a em {
+.drawer a .nav-en {
   font-family: "Inter", sans-serif;
   font-size: 10px;
-  font-style: normal;
   color: var(--muted);
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -454,6 +492,7 @@ h2 {
 /* --- sections ---------------------------------------------------------- */
 
 .section {
+  padding: 64px 0;
   padding-block: clamp(64px, 9vw, 120px);
 }
 
@@ -616,19 +655,19 @@ h2 {
   text-transform: uppercase;
 }
 
-.work strong {
+.work .work-title {
   display: block;
+  margin: 0;
   font-family: var(--serif);
   font-size: 18px;
   font-weight: 500;
 }
 
-.work em {
+.work .work-note {
   display: block;
   margin-top: 4px;
   color: var(--text-2);
   font-size: 14px;
-  font-style: normal;
 }
 
 /* process */
@@ -656,7 +695,7 @@ h2 {
   letter-spacing: 0.18em;
 }
 
-.steps h4 {
+.steps h3 {
   margin-bottom: 4px;
   font-size: 19px;
 }
@@ -801,12 +840,23 @@ h2 {
   color: var(--muted);
 }
 
+/* No `outline: none` here any more — the :focus-visible rule near the top of
+   this file supplies a 3:1-plus ring. This is the resting-focus styling only. */
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
-  outline: none;
-  border-color: var(--sage);
+  border-color: var(--olive);
   background: #fff;
+}
+
+.form-status {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--text-2);
+}
+
+.form-status:empty {
+  display: none;
 }
 
 .contact-form button {
@@ -852,7 +902,7 @@ h2 {
   gap: clamp(32px, 5vw, 72px);
 }
 
-.footer-brand strong {
+.footer-brand .footer-name {
   display: block;
   font-family: var(--serif);
   font-size: 17px;
@@ -866,12 +916,11 @@ h2 {
   font-size: 13.5px;
 }
 
-.footer-brand em {
+.footer-brand .footer-en {
   display: block;
   margin-top: 10px;
   font-family: "Inter", sans-serif;
   font-size: 10px;
-  font-style: normal;
   color: var(--muted);
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -883,14 +932,20 @@ h2 {
   gap: 28px;
 }
 
-.footer-cols h5 {
-  margin-bottom: 14px;
+.footer-cols .footer-col-title {
+  margin: 0 0 14px;
   font-family: "Inter", sans-serif;
   font-size: 10.5px;
   font-weight: 500;
   color: var(--muted);
   letter-spacing: 0.18em;
   text-transform: uppercase;
+}
+
+.footer-cols ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .footer-cols a,
@@ -920,13 +975,22 @@ h2 {
 
 /* --- restrained motion -------------------------------------------------- */
 
+/* Content is visible by DEFAULT. The hidden state is opt-in via the `js` class
+   that the inline script in <head> adds, so a blocked, 404'd or disabled
+   app.js can never leave 19 content blocks permanently at opacity:0 — which
+   also happens to be what made the page print mostly blank. */
 .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+html.js .reveal {
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 400ms var(--ease), transform 400ms var(--ease);
 }
 
-.reveal.is-visible {
+html.js .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
@@ -1043,11 +1107,179 @@ h2 {
   *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+    /* app.js sets transition-delay inline, which a non-important rule cannot
+       beat — hence !important here too */
+    transition-delay: 0ms !important;
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
   }
 
-  .reveal {
+  .reveal,
+  html.js .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* ==========================================================================
+   列印樣式（A4，供驗收會議列印使用）
+   ========================================================================== */
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 15mm 14mm;
+  }
+
+  /* 最關鍵的一條：.reveal 未捲動到的區塊會整片空白列印。
+     強制全部顯示，不受捲動歷程影響。 */
+  .reveal,
+  .reveal.is-visible,
+  html.js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    transition-delay: 0ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+    scroll-padding-top: 0;
+  }
+
+  body {
+    /* overflow:hidden 在部分列印引擎會裁切內容或產生空白頁 */
+    overflow-x: visible;
+    background: #fff !important;
+    color: #000;
+    font-size: 10.5pt;
+    line-height: 1.7;
+  }
+
+  /* 固定式頁首會壓在 hero 上，部分引擎每頁重複 */
+  .site-header,
+  .drawer,
+  .skip-link,
+  .menu-button {
+    display: none !important;
+  }
+
+  .hero {
+    padding-top: 0;
+  }
+
+  /* 底色不會列印，淺色字落在白紙上等於消失，改為描邊 */
+  .btn,
+  .btn-primary,
+  .btn-ghost,
+  .drawer-cta,
+  .contact-form button,
+  .area-list li {
+    background: transparent !important;
+    color: #000 !important;
+    border: 1pt solid #666 !important;
+    transform: none !important;
+  }
+
+  .section-alt {
+    background: transparent !important;
+    border-top: 0.5pt solid #bbb;
+  }
+
+  .card,
+  .contact-form,
+  .hero-figure img,
+  .about-figure img,
+  .area-figure img,
+  .work img {
+    background: transparent !important;
+    border: 0.5pt solid #bbb !important;
+    border-radius: 0 !important;
+  }
+
+  /* 淺灰在碳粉下幾乎看不見 */
+  .lede,
+  .section-head p,
+  .about-body p,
+  .card p,
+  .steps p,
+  .area-copy > p,
+  .contact-copy > p,
+  .work-note,
+  .footer-cols a,
+  .footer-note,
+  .footer-brand span {
+    color: #222 !important;
+  }
+
+  .label-ja,
+  .label-en,
+  .card-no,
+  .step-no,
+  .work-meta,
+  .group-ja,
+  .contact-meta dt,
+  .form-note,
+  .footer-bottom,
+  figcaption {
+    color: #555 !important;
+  }
+
+  /* 紙上留白框比列印不清的灰字好讀 */
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: transparent !important;
+  }
+
+  .section {
+    padding-block: 10mm;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    break-after: avoid;
+    break-inside: avoid;
+  }
+
+  .card,
+  .steps li,
+  .work,
+  figure,
+  .contact-meta > div,
+  .footer-inner {
+    break-inside: avoid;
+  }
+
+  .hero-inner,
+  .section-head,
+  .about-grid,
+  .area-grid,
+  .contact-grid,
+  .footer-inner,
+  .works-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 8mm !important;
+  }
+
+  .card-grid,
+  .card-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 5mm !important;
+  }
+
+  .hero-foot ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  /* 單張佔位圖不應吃掉整頁 */
+  img {
+    max-height: 85mm;
+    object-fit: cover;
+  }
+
+  .work-tall img {
+    aspect-ratio: auto !important;
   }
 }

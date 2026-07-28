@@ -2,6 +2,15 @@
 <html lang="zh-Hant">
   <head>
     <meta charset="utf-8" />
+    <!--
+      Marks the document as script-enabled BEFORE the stylesheet loads, so the
+      .reveal fade-in only hides content when JS is confirmed to be running.
+      Without this, a blocked or failed app.js leaves 19 content blocks at
+      opacity:0 permanently — including when the page is printed.
+    -->
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>雲程數位科技有限公司｜南台灣弱電整合・數位服務</title>
     <meta
@@ -9,6 +18,14 @@
       content="雲程數位科技有限公司提供南台灣監視系統、門禁對講、網路佈線、智慧居家與維修保養等弱電整合服務，並承接網站系統開發、雲端轉型、數位行銷與 AI 應用導入。"
     />
     <meta name="theme-color" content="#F7F5F0" />
+
+    <!-- REPLACE https://example.com WITH THE PRODUCTION ORIGIN BEFORE GO-LIVE -->
+    <link rel="canonical" href="https://example.com/" />
+
+    <link rel="icon" href="./images/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./images/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="./images/apple-touch-icon.png" />
+
     <meta property="og:title" content="雲程數位科技有限公司" />
     <meta
       property="og:description"
@@ -16,20 +33,103 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
+    <meta property="og:site_name" content="雲程數位科技有限公司" />
+    <meta property="og:url" content="https://example.com/" />
+    <!-- PNG, not SVG: Meta and LinkedIn do not render SVG og:image -->
+    <meta property="og:image" content="https://example.com/images/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="雲程數位科技有限公司 — 弱電整合工程・數位服務" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="雲程數位科技有限公司" />
+    <meta
+      name="twitter:description"
+      content="弱電整合與數位服務。從現場勘查、施工到後續維護，把看不見的線路整理成安心的日常。"
+    />
+    <meta name="twitter:image" content="https://example.com/images/og-image.png" />
+    <meta name="twitter:image:alt" content="雲程數位科技有限公司 — 弱電整合工程・數位服務" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Latin UI face: a few KB, swap costs nothing -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!--
+      CJK faces are multi-megabyte. display=optional keeps the fallback for the
+      whole page view rather than reflowing the document seconds after paint.
+      Noto Serif TC 600 is not requested — nothing in styles.css uses weight 600.
+    -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@400;500&family=Noto+Serif+JP:wght@400;500&display=optional"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
+
+    <!--
+      Structured data. telephone / email / address / taxID / openingHours are
+      deliberately ABSENT rather than carrying [需人工填寫] strings — a literal
+      placeholder value is flagged as an error by the Rich Results Test.
+      Add those properties once the real values are known.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://example.com/#organization",
+        "name": "雲程數位科技有限公司",
+        "alternateName": "Yuncheng Digital Technology",
+        "url": "https://example.com/",
+        "logo": "https://example.com/images/favicon.svg",
+        "image": "https://example.com/images/og-image.png",
+        "description": "雲程數位科技有限公司提供南台灣監視系統、門禁對講、網路佈線、智慧居家與維修保養等弱電整合服務，並承接網站系統開發、雲端轉型、數位行銷與 AI 應用導入。",
+        "inLanguage": "zh-Hant",
+        "areaServed": [
+          { "@type": "Place", "name": "台南" },
+          { "@type": "Place", "name": "高雄" },
+          { "@type": "Place", "name": "屏東" },
+          { "@type": "Place", "name": "嘉義" }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "服務項目",
+          "itemListElement": [
+            {
+              "@type": "OfferCatalog",
+              "name": "弱電整合工程",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "監視系統" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "門禁與對講" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "網路佈線" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "智慧居家" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "維修與保養" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "弱電工程顧問" } }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "數位服務",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "網站與系統開發" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "雲端與數位轉型" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "數位行銷與品牌" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI 應用導入" } }
+              ]
+            }
+          ]
+        }
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">跳至主要內容</a>
 
     <header class="site-header" data-header>
       <div class="header-inner">
-        <a class="brand" href="#top" aria-label="雲程數位科技，回到首頁">
+        <a class="brand" href="#top" aria-label="雲程數位科技 Yuncheng Digital，回到首頁">
           <span class="brand-name">雲程數位科技</span>
           <span class="brand-en">Yuncheng Digital</span>
         </a>
@@ -42,44 +142,45 @@
           <a href="#area">服務地區</a>
         </nav>
 
-        <a class="header-cta" href="#contact">預約勘查</a>
-
-        <button
-          class="menu-button"
-          type="button"
-          aria-label="開啟選單"
-          aria-expanded="false"
-          aria-controls="drawer"
-          data-menu-button
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <div class="header-end">
+          <a class="header-cta" href="#contact">預約勘查</a>
+          <button
+            class="menu-button"
+            type="button"
+            aria-label="開啟選單"
+            aria-expanded="false"
+            aria-controls="drawer"
+            data-menu-button
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
     </header>
 
     <div class="drawer" id="drawer" data-drawer>
       <nav aria-label="行動裝置導覽">
-        <a href="#about"><span>關於我們</span><em>About</em></a>
-        <a href="#services"><span>服務項目</span><em>Services</em></a>
-        <a href="#works"><span>現場記錄</span><em>Works</em></a>
-        <a href="#process"><span>服務流程</span><em>Process</em></a>
-        <a href="#area"><span>服務地區</span><em>Area</em></a>
+        <a href="#about"><span>關於我們</span><span class="nav-en">About</span></a>
+        <a href="#services"><span>服務項目</span><span class="nav-en">Services</span></a>
+        <a href="#works"><span>現場記錄</span><span class="nav-en">Works</span></a>
+        <a href="#process"><span>服務流程</span><span class="nav-en">Process</span></a>
+        <a href="#area"><span>服務地區</span><span class="nav-en">Area</span></a>
         <a class="drawer-cta" href="#contact">預約現場勘查</a>
       </nav>
     </div>
 
-    <main id="main">
+    <main id="main" tabindex="-1">
       <!-- ── hero ───────────────────────────────────────── -->
-      <section class="hero" id="top">
+      <section class="hero" id="top" aria-labelledby="hero-title">
         <div class="wrap hero-inner">
           <div class="hero-copy">
             <p class="label">
-              <span class="label-ja">暮らしの技術</span>
+              <span class="label-ja" lang="ja">暮らしの技術</span>
               <span class="label-en">Technology for everyday life</span>
             </p>
-            <h1>把看不見的線路，<br />整理成安心的日常。</h1>
+            <h1 id="hero-title">把看不見的線路，<br />整理成安心的日常。</h1>
             <p class="lede">
               雲程數位科技承接南台灣的弱電整合工程——監視系統、門禁對講、網路佈線與智慧居家；同時提供網站系統開發、雲端轉型、數位行銷與
               AI 應用導入。現場與線上，都由同一個窗口負責。
@@ -91,7 +192,14 @@
           </div>
 
           <figure class="hero-figure">
-            <img src="./images/hero.svg" alt="" width="1200" height="800" />
+            <img
+              src="./images/hero.svg"
+              alt=""
+              width="1200"
+              height="800"
+              fetchpriority="high"
+              decoding="async"
+            />
             <figcaption>
               <span>現場勘查</span>
               先確認線路、電源與風險，再談施工方案。
@@ -100,7 +208,7 @@
         </div>
 
         <div class="wrap hero-foot">
-          <ul>
+          <ul role="list">
             <li><span>01</span>弱電整合工程</li>
             <li><span>02</span>維修與保養</li>
             <li><span>03</span>數位系統開發</li>
@@ -110,16 +218,16 @@
       </section>
 
       <!-- ── about ──────────────────────────────────────── -->
-      <section class="section" id="about">
+      <section class="section" id="about" aria-labelledby="about-title">
         <div class="wrap">
           <p class="label">
-            <span class="label-ja">私たちについて</span>
+            <span class="label-ja" lang="ja">私たちについて</span>
             <span class="label-en">About</span>
           </p>
 
           <div class="about-grid">
             <div class="about-lead">
-              <h2>設備會老，<br />但維護的紀錄不該斷。</h2>
+              <h2 id="about-title">設備會老，<br />但維護的紀錄不該斷。</h2>
             </div>
             <div class="about-body">
               <p>
@@ -135,29 +243,36 @@
           </div>
 
           <figure class="about-figure">
-            <img src="./images/about.svg" alt="" width="1000" height="750" />
+            <img
+              src="./images/about.svg"
+              alt=""
+              width="1000"
+              height="750"
+              loading="lazy"
+              decoding="async"
+            />
             <figcaption>整理過的弱電箱，日後維修才有辦法接手。</figcaption>
           </figure>
         </div>
       </section>
 
       <!-- ── services ───────────────────────────────────── -->
-      <section class="section section-alt" id="services">
+      <section class="section section-alt" id="services" aria-labelledby="services-title">
         <div class="wrap">
           <p class="label">
-            <span class="label-ja">仕事の内容</span>
+            <span class="label-ja" lang="ja">仕事の内容</span>
             <span class="label-en">Services</span>
           </p>
 
           <div class="section-head">
-            <h2>現場的工程，<br />與線上的系統。</h2>
+            <h2 id="services-title">現場的工程，<br />與線上的系統。</h2>
             <p>
               兩類服務可以單獨進行，也可以整合成一套。範圍、時程與報價需經現場確認後成立，我們不提供未經評估的絕對承諾。
             </p>
           </div>
 
           <h3 class="group-title">
-            <span class="group-ja">現場工事</span>
+            <span class="group-ja" lang="ja">現場工事</span>
             弱電整合工程
           </h3>
           <div class="card-grid">
@@ -194,7 +309,7 @@
           </div>
 
           <h3 class="group-title">
-            <span class="group-ja">デジタル</span>
+            <span class="group-ja" lang="ja">デジタル</span>
             數位服務
           </h3>
           <div class="card-grid card-grid-4">
@@ -223,43 +338,64 @@
       </section>
 
       <!-- ── works ──────────────────────────────────────── -->
-      <section class="section" id="works">
+      <section class="section" id="works" aria-labelledby="works-title">
         <div class="wrap">
           <p class="label">
-            <span class="label-ja">現場の記録</span>
+            <span class="label-ja" lang="ja">現場の記録</span>
             <span class="label-en">Works</span>
           </p>
 
           <div class="section-head">
-            <h2>做完之後，<br />還看得懂當初怎麼做。</h2>
+            <h2 id="works-title">做完之後，<br />還看得懂當初怎麼做。</h2>
             <p>以下為服務類型示意。實際案場照片與客戶資訊需經同意後才會公開，正式上線前請替換為自有照片。</p>
           </div>
 
           <div class="works-grid">
             <figure class="work work-tall reveal">
-              <img src="./images/work-01.svg" alt="" width="900" height="675" />
+              <img
+                src="./images/work-01.svg"
+                alt=""
+                width="900"
+                height="675"
+                loading="lazy"
+                decoding="async"
+              />
               <figcaption>
                 <span class="work-meta">住宅 ／ 監視系統</span>
-                <strong>透天住宅的鏡頭重新配置</strong>
-                <em>盤點死角後調整角度與數量，而非單純增設。</em>
+                <h3 class="work-title">透天住宅的鏡頭重新配置</h3>
+                <span class="work-note">盤點死角後調整角度與數量，而非單純增設。</span>
               </figcaption>
             </figure>
 
             <figure class="work reveal">
-              <img src="./images/work-02.svg" alt="" width="900" height="600" />
+              <img
+                src="./images/work-02.svg"
+                alt=""
+                width="900"
+                height="600"
+                loading="lazy"
+                decoding="async"
+              />
               <figcaption>
                 <span class="work-meta">店面 ／ 網路佈線</span>
-                <strong>營業空間的網路穩定化</strong>
-                <em>整理弱電箱、重規劃 Wi-Fi 覆蓋與交換器位置。</em>
+                <h3 class="work-title">營業空間的網路穩定化</h3>
+                <span class="work-note">整理弱電箱、重規劃 Wi-Fi 覆蓋與交換器位置。</span>
               </figcaption>
             </figure>
 
             <figure class="work reveal">
-              <img src="./images/work-03.svg" alt="" width="900" height="675" />
+              <img
+                src="./images/work-03.svg"
+                alt=""
+                width="900"
+                height="675"
+                loading="lazy"
+                decoding="async"
+              />
               <figcaption>
                 <span class="work-meta">社區 ／ 門禁對講</span>
-                <strong>老舊對講系統汰換</strong>
-                <em>保留既有管線，分階段更換主機與室內機。</em>
+                <h3 class="work-title">老舊對講系統汰換</h3>
+                <span class="work-note">保留既有管線，分階段更換主機與室內機。</span>
               </figcaption>
             </figure>
           </div>
@@ -267,51 +403,51 @@
       </section>
 
       <!-- ── process ────────────────────────────────────── -->
-      <section class="section section-alt" id="process">
+      <section class="section section-alt" id="process" aria-labelledby="process-title">
         <div class="wrap">
           <p class="label">
-            <span class="label-ja">仕事の流れ</span>
+            <span class="label-ja" lang="ja">仕事の流れ</span>
             <span class="label-en">Process</span>
           </p>
 
           <div class="section-head">
-            <h2>流程要簡單，<br />責任要清楚。</h2>
+            <h2 id="process-title">流程要簡單，<br />責任要清楚。</h2>
             <p>現場工程最怕資訊斷掉。每次服務都拆成可追蹤的步驟，避免口頭交代後沒人記得。</p>
           </div>
 
-          <ol class="steps">
+          <ol class="steps" role="list">
             <li class="reveal">
               <span class="step-no">01</span>
               <div>
-                <h4>需求確認</h4>
+                <h3>需求確認</h3>
                 <p>釐清場域、故障現象、預算區間與時程限制。</p>
               </div>
             </li>
             <li class="reveal">
               <span class="step-no">02</span>
               <div>
-                <h4>現場勘查</h4>
+                <h3>現場勘查</h3>
                 <p>確認線路、電源、網路環境、設備位置與施工風險。</p>
               </div>
             </li>
             <li class="reveal">
               <span class="step-no">03</span>
               <div>
-                <h4>方案建議</h4>
+                <h3>方案建議</h3>
                 <p>提供分階段做法與報價，需人工確認後才成立。</p>
               </div>
             </li>
             <li class="reveal">
               <span class="step-no">04</span>
               <div>
-                <h4>施工交付</h4>
+                <h3>施工交付</h3>
                 <p>完成安裝、測試、基本教學與設備資訊留存。</p>
               </div>
             </li>
             <li class="reveal">
               <span class="step-no">05</span>
               <div>
-                <h4>維護追蹤</h4>
+                <h3>維護追蹤</h3>
                 <p>保固、保養、故障紀錄與後續擴充建議。</p>
               </div>
             </li>
@@ -320,22 +456,29 @@
       </section>
 
       <!-- ── area ───────────────────────────────────────── -->
-      <section class="section" id="area">
+      <section class="section" id="area" aria-labelledby="area-title">
         <div class="wrap area-grid">
-          <figure class="area-figure reveal">
-            <img src="./images/area.svg" alt="" width="1000" height="700" />
-          </figure>
+          <div class="area-figure reveal">
+            <img
+              src="./images/area.svg"
+              alt=""
+              width="1000"
+              height="700"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
 
           <div class="area-copy">
             <p class="label">
-              <span class="label-ja">対応地域</span>
+              <span class="label-ja" lang="ja">対応地域</span>
               <span class="label-en">Area</span>
             </p>
-            <h2>以南台灣<br />為主要服務範圍。</h2>
+            <h2 id="area-title">以南台灣<br />為主要服務範圍。</h2>
             <p>
               台南、高雄、屏東、嘉義為主要服務區域。偏遠地區與急件需依人力與車程另行確認，我們會在回覆時直接說明是否能承接。
             </p>
-            <ul class="area-list">
+            <ul class="area-list" role="list">
               <li>台南</li>
               <li>高雄</li>
               <li>屏東</li>
@@ -347,14 +490,14 @@
       </section>
 
       <!-- ── contact ────────────────────────────────────── -->
-      <section class="section section-alt" id="contact">
+      <section class="section section-alt" id="contact" aria-labelledby="contact-title">
         <div class="wrap contact-grid">
           <div class="contact-copy">
             <p class="label">
-              <span class="label-ja">お問い合わせ</span>
+              <span class="label-ja" lang="ja">お問い合わせ</span>
               <span class="label-en">Contact</span>
             </p>
-            <h2>先把問題描述清楚，<br />再決定要不要到場。</h2>
+            <h2 id="contact-title">先把問題描述清楚，<br />再決定要不要到場。</h2>
             <p>
               請提供場域類型、目前的故障現象、設備照片與位置。若需估價，實際金額與承諾內容需由我們人工確認後才成立。
             </p>
@@ -375,21 +518,28 @@
             </dl>
           </div>
 
-          <form class="contact-form" aria-label="諮詢表單" novalidate>
+          <form class="contact-form" aria-label="諮詢表單">
             <div class="field-row">
               <label>
-                姓名 / 公司
-                <input type="text" name="name" autocomplete="name" placeholder="例：王先生 / ○○ 管委會" />
+                姓名 / 公司（必填）
+                <input
+                  type="text"
+                  name="name"
+                  autocomplete="name"
+                  required
+                  placeholder="例：王先生 / ○○ 管委會"
+                />
               </label>
               <label>
-                聯絡方式
-                <input type="text" name="contact" autocomplete="tel" placeholder="電話或 LINE ID" />
+                聯絡方式（必填）
+                <input type="text" name="contact" required placeholder="電話或 LINE ID" />
               </label>
             </div>
 
             <label>
               場域類型
               <select name="place">
+                <option value="">請選擇</option>
                 <option>住宅</option>
                 <option>店面 / 辦公室</option>
                 <option>社區 / 大樓</option>
@@ -401,6 +551,7 @@
             <label>
               需要協助的項目
               <select name="service">
+                <option value="">請選擇</option>
                 <option>監視系統</option>
                 <option>門禁 / 對講 / 電子鎖</option>
                 <option>網路佈線 / Wi-Fi</option>
@@ -412,15 +563,17 @@
             </label>
 
             <label>
-              問題描述
+              問題描述（必填）
               <textarea
                 name="message"
                 rows="4"
+                required
                 placeholder="請描述場域、故障狀況與希望處理的時間。"
               ></textarea>
             </label>
 
             <button type="submit">送出諮詢</button>
+            <p class="form-status" role="status" aria-live="polite" data-form-status></p>
             <p class="form-note">
               此表單為前端示範，正式上線前需串接表單服務、Email 通知、LINE 官方帳號或 CRM 才會實際送出。
             </p>
@@ -432,30 +585,36 @@
     <footer class="site-footer">
       <div class="wrap footer-inner">
         <div class="footer-brand">
-          <strong>雲程數位科技有限公司</strong>
+          <span class="footer-name">雲程數位科技有限公司</span>
           <span>弱電整合工程・數位服務</span>
-          <em>Yuncheng Digital Technology</em>
+          <span class="footer-en">Yuncheng Digital Technology</span>
         </div>
 
         <div class="footer-cols">
+          <nav aria-labelledby="footer-services">
+            <h2 class="footer-col-title" id="footer-services">服務</h2>
+            <ul role="list">
+              <li><a href="#services">監視系統</a></li>
+              <li><a href="#services">門禁與對講</a></li>
+              <li><a href="#services">網路佈線</a></li>
+              <li><a href="#services">智慧居家</a></li>
+              <li><a href="#services">數位服務</a></li>
+            </ul>
+          </nav>
+
+          <nav aria-labelledby="footer-company">
+            <h2 class="footer-col-title" id="footer-company">公司</h2>
+            <ul role="list">
+              <li><a href="#about">關於我們</a></li>
+              <li><a href="#works">現場記錄</a></li>
+              <li><a href="#process">服務流程</a></li>
+              <li><a href="#area">服務地區</a></li>
+              <li><a href="#contact">聯絡我們</a></li>
+            </ul>
+          </nav>
+
           <div>
-            <h5>服務</h5>
-            <a href="#services">監視系統</a>
-            <a href="#services">門禁與對講</a>
-            <a href="#services">網路佈線</a>
-            <a href="#services">智慧居家</a>
-            <a href="#services">數位服務</a>
-          </div>
-          <div>
-            <h5>公司</h5>
-            <a href="#about">關於我們</a>
-            <a href="#works">現場記錄</a>
-            <a href="#process">服務流程</a>
-            <a href="#area">服務地區</a>
-            <a href="#contact">聯絡我們</a>
-          </div>
-          <div>
-            <h5>資訊</h5>
+            <h2 class="footer-col-title">資訊</h2>
             <span class="footer-note">統一編號：[需人工填寫]</span>
             <span class="footer-note">地址：[需人工填寫]</span>
             <span class="footer-note">電話：[需人工填寫]</span>
